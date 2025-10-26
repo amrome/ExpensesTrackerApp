@@ -4,11 +4,13 @@ import { GlobalStyles } from "../../constants/styles";
 import ExpensesSummary from "./ExpensesSummary";
 import ExpensesList from "./ExpensesList";
 
-function ExpensesOutput({ expenses, expensesPeriod }) {
+function ExpensesOutput({ expenses, DUMMY_EXPENSES, expensesPeriod }) {
+  const expensesToShow = expenses ?? DUMMY_EXPENSES ?? [];
+
   return (
     <View style={styles.container}>
-      <ExpensesSummary periodName={expensesPeriod} expenses={DUMMY_EXPENSES} />
-      <ExpensesList expenses={DUMMY_EXPENSES} />
+      <ExpensesSummary periodName={expensesPeriod} expenses={expensesToShow} />
+      <ExpensesList expenses={expensesToShow} />
     </View>
   );
 }
